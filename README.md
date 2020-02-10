@@ -1,7 +1,8 @@
-# AzureLogAnalytics for Node.js
+# nodejs-azure-loganalytics
+## AzureLogAnalytics for Node.js
 Node.jsにてAzureLogAnalyticsにログを送信する為のライブラリです。
 
-# npmにて使用する方法
+## npmにて使用する方法
 *pacjage.json*内の*dependencies*に`"loganalytics": "git+ssh@github.com:cloudnative-co/nodejs-azure-loganalytics.git"`を追加します。
 ```{
   "name": "foo",
