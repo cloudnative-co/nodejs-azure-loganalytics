@@ -1,0 +1,11 @@
+{
+  "name": "loganalytics",
+  "version": "0.0.1",
+  "description": "The library where custom log is sent to Azure Log Analyses",
+  "private": true,
+  "main": "module.js",
+  "dependencies": {
+    "request": "^2.88.0"
+  },
+  "author": "Sebastian"
+}
