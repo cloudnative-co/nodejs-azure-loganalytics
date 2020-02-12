@@ -71,10 +71,10 @@ mdlClient.prototype.createAuth = function createAuth(contentLength, processingDa
  @brief         ログの送信
  @params[in]    data[list)              送信するログデータ
  @params[in]    logType(str)            送信中のデータのレコード型
- @params[in]    azureResourceId(str)    データを関連付けるAzureリソースID
  @params[in]    timeGenerated(str)      データ項目の日時を含むフィールドの名
+ @params[in]    azureResourceId(str)    データを関連付けるAzureリソースID
 */
-mdlClient.prototype.postLog = function postLog(data, logType, azureResourceId, timeGenerated) {
+mdlClient.prototype.postLog = function postLog(data, logType, timeGenerated, azureResourceId) {
     const processingDate = new Date().toUTCString();
     const body = JSON.stringify(data)
     const contentLength = Buffer.byteLength(body)
@@ -85,7 +85,7 @@ mdlClient.prototype.postLog = function postLog(data, logType, azureResourceId, t
         "Log-Type": logType,
         "x-ms-date": processingDate
     };
-    if (AzureResourceId != undefined) {
+    if (azureResourceId) {
         headers["x-ms-AzureResourceId"] = azureResourceId
     }
     if (timeGenerated) {
@@ -98,7 +98,6 @@ mdlClient.prototype.postLog = function postLog(data, logType, azureResourceId, t
         method: 'POST',
         body: body
     }
-    return
     return request(options)
 };
 
